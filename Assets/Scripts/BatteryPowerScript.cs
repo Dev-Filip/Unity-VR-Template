@@ -4,11 +4,18 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class BatteryPowerScript : MonoBehaviour
 {
+    private MeshRenderer lightMeshRenderer = null;
+
     [SerializeField] Light lightSource = null;
 
     [SerializeField] List<XRSocketInteractor> batterySockets = new List<XRSocketInteractor>();
     [SerializeField] bool outputingPower = false;
 
+
+    private void Awake()
+    {
+        if(lightSource) lightMeshRenderer = lightSource.GetComponent<MeshRenderer>();
+    }
 
     public void UpdatePowerDelivery()
     {
@@ -17,15 +24,33 @@ public class BatteryPowerScript : MonoBehaviour
         outputingPower = true;
         foreach (XRSocketInteractor socket in batterySockets)
         {
-            if(!socket.selectTarget || !socket.selectTarget.tag.Equals("Battery"))
+            if (!socket.selectTarget || !socket.selectTarget.tag.Equals("Battery"))
             {
                 outputingPower = false;
                 break;
             }
         }
 
-        //outputingPower = (emptySockets == 0);
-        lightSource.enabled = outputingPower;
+        SetLight(outputingPower);
+
         Debug.Log("Light active: " + outputingPower);
+    }
+
+    private void SetLight(bool isEnabled)
+    {
+        lightSource.enabled = isEnabled;
+        if (lightMeshRenderer)
+        {
+            if(isEnabled)
+                lightMeshRenderer.material.EnableKeyword("_EMISSION");
+            else
+                lightMeshRenderer.material.DisableKeyword("_EMISSION");
+        }
+    }
+
+    private void OnValidate()
+    {
+        if(lightSource.enabled != outputingPower)
+            SetLight(outputingPower);
     }
 }
