@@ -22,39 +22,29 @@ public class PushButton : XRBaseInteractable
     protected override void Awake()
     {
         base.Awake();
-
-        onHoverEnter.AddListener(StartPress);
-        onHoverExit.AddListener(EndPress);
-
-        SetMinMax();
+        
+        //Set y min and max
+        yMin = transform.localPosition.y - maxDepth;
+        yMax = transform.localPosition.y;
     }
 
-    private void OnDestroy()
+    protected override void OnHoverEnter(XRBaseInteractor interactor)
     {
-        onHoverEnter.AddListener(StartPress);
-        onHoverExit.AddListener(EndPress);
-    }
+        base.OnHoverEnter(interactor);
 
-    private void StartPress(XRBaseInteractor interactor)
-    {
         hoverInteractor = interactor;
         previousHandHeight = GetLocalYPosition(hoverInteractor.transform.position);
     }
 
-    private void EndPress(XRBaseInteractor interactor)
+    protected override void OnHoverExit(XRBaseInteractor interactor)
     {
+        base.OnHoverExit(interactor);
+
         hoverInteractor = null;
         previousHandHeight = 0.0f;
 
         previousPress = false;
         SetYPosition(yMax);
-    }
-
-    private void SetMinMax()
-    {
-        Collider collider = GetComponent<Collider>();
-        yMin = transform.localPosition.y - maxDepth;
-        yMax = transform.localPosition.y;
     }
 
     public override void ProcessInteractable(XRInteractionUpdateOrder.UpdatePhase updatePhase)
@@ -92,7 +82,8 @@ public class PushButton : XRBaseInteractable
 
     private void CheckPress()
     {
-        bool inPosition = InPosition();
+        //check if near the bottom
+        bool inPosition = transform.localPosition.y <= yMin + 0.01f;
 
         if (inPosition != previousPress)
         {
@@ -103,13 +94,5 @@ public class PushButton : XRBaseInteractable
         }
 
         previousPress = inPosition;
-    }
-
-    private bool InPosition()
-    {
-        //float inRange = Mathf.Clamp(transform.localPosition.y, yMin, yMin + 0.01f);
-        //return transform.localPosition.y == inRange;
-
-        return transform.localPosition.y <= yMin + 0.01f;
     }
 }
