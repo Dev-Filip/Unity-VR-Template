@@ -9,8 +9,6 @@ public class SelectButton : XRBaseInteractable
     private float yMin = 0.0f;
     private float yMax = 0.0f;
 
-    private float previousHandHeight = 0.0f;
-    private XRBaseInteractor hoverInteractor = null;
 
     public float maxDepth = 0.1f;
 
@@ -22,27 +20,25 @@ public class SelectButton : XRBaseInteractable
     {
         base.Awake();
 
-        //Set y min and max
+        //Set button heigh maximum and minimum values
         yMin = transform.localPosition.y - maxDepth;
         yMax = transform.localPosition.y;
     }
 
+    //Called when we begin interaction with the button
     protected override void OnSelectEnter(XRBaseInteractor interactor)
     {
         base.OnSelectEnter(interactor);
 
-        hoverInteractor = interactor;
         SetYPosition(yMin);
 
         OnPress.Invoke();
     }
 
+    //Called when we finish interaction with the button
     protected override void OnSelectExit(XRBaseInteractor interactor)
     {
         base.OnSelectExit(interactor);
-
-        hoverInteractor = null;
-        previousHandHeight = 0.0f;
 
         SetYPosition(yMax);
 
