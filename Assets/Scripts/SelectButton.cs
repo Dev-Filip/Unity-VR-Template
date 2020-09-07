@@ -8,8 +8,6 @@ public class SelectButton : XRBaseInteractable
 
     private float yMin = 0.0f;
     private float yMax = 0.0f;
-
-
     public float maxDepth = 0.1f;
 
     public UnityEvent OnPress = null;
