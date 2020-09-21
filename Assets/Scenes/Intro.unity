@@ -268,7 +268,7 @@ GameObject:
   - component: {fileID: 1063839018}
   - component: {fileID: 1063839017}
   - component: {fileID: 1063839016}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ButtonStand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -668,7 +668,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 699331142, guid: 3d92c9f66ebf7184daf84be89dfe0c0f, type: 3}
       propertyPath: m_Radius
-      value: 0.1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1534112706441974529, guid: 3d92c9f66ebf7184daf84be89dfe0c0f,
         type: 3}
@@ -729,6 +729,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: XR Rig
+      objectReference: {fileID: 0}
+    - target: {fileID: 1534112706441974543, guid: 3d92c9f66ebf7184daf84be89dfe0c0f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d92c9f66ebf7184daf84be89dfe0c0f, type: 3}
