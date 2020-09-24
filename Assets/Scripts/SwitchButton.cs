@@ -2,7 +2,7 @@
 using UnityEngine.Events;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class TriggerButton : XRBaseInteractable
+public class SwitchButton : XRBaseInteractable
 {
     //Variables for highest and lowest button point
     private float yMax = 0f;
@@ -12,10 +12,10 @@ public class TriggerButton : XRBaseInteractable
     //Variable for maxDepth
     [SerializeField] private float maxDepth = 0.01f;
 
-    //Variable for Unity Events OnPress/OnRelease
-    public UnityEvent OnPress = null;
+    public UnityEvent OnToggleOn = null;
+    public UnityEvent OnToggleOff = null;
 
-    public UnityEvent OnRelease = null;
+    private bool switchState = false;
 
     protected override void Awake()
     {
@@ -32,19 +32,20 @@ public class TriggerButton : XRBaseInteractable
         //Call base class function
         base.OnSelectEnter(interactor);
         //Update button position (it goes down)
-        SetYPosition(yMin);
-        //Fire event OnPress
-        OnPress.Invoke();
-    }
 
-    protected override void OnSelectExit(XRBaseInteractor interactor)
-    {
-        //Call base class function
-        base.OnSelectExit(interactor);
-        //Update button position (it goes up)
-        SetYPosition(yMax);
-        //Fire event OnRelease
-        OnRelease.Invoke();
+        switchState = !switchState;
+
+        if (switchState)
+        {
+            SetYPosition(yMin);
+            OnToggleOn.Invoke();
+            
+        }
+        else
+        {
+            SetYPosition(yMax);
+            OnToggleOff.Invoke();
+        }
     }
 
     private void SetYPosition(float position)
@@ -52,5 +53,17 @@ public class TriggerButton : XRBaseInteractable
         Vector3 newPosition = transform.localPosition;
         newPosition.y = position;
         transform.localPosition = newPosition;
+    }
+
+    public void ChangeColor()
+    {
+        if (switchState)
+        {
+            GetComponent<MeshRenderer>().material.color = Color.blue;
+        }
+        else if (!switchState)
+        {
+            GetComponent<MeshRenderer>().material.color = Color.red;
+        }
     }
 }

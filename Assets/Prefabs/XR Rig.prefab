@@ -347,6 +347,7 @@ MonoBehaviour:
   speed: 1
   controller: {fileID: 1534112706745328164}
   head: {fileID: 1534112705978812456}
+  sprintMultiplier: 2
 --- !u!1 &1534112706745328175
 GameObject:
   m_ObjectHideFlags: 0
