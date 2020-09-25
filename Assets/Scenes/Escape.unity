@@ -625,8 +625,8 @@ HingeJoint:
   m_ConnectedBody: {fileID: 0}
   m_Anchor: {x: 0, y: 1, z: 0}
   m_Axis: {x: 0, y: 1, z: 0}
-  m_AutoConfigureConnectedAnchor: 0
-  m_ConnectedAnchor: {x: 1.419, y: 1.248, z: 2.608}
+  m_AutoConfigureConnectedAnchor: 1
+  m_ConnectedAnchor: {x: 1.419, y: 0.979, z: 2.283}
   m_UseSpring: 0
   m_Spring:
     spring: 0
@@ -639,8 +639,8 @@ HingeJoint:
     freeSpin: 0
   m_UseLimits: 1
   m_Limits:
-    min: 77.55517
-    max: 179.0347
+    min: -90
+    max: 0
     bounciness: 0
     bounceMinVelocity: 0.2
     contactDistance: 0
@@ -757,7 +757,7 @@ PrefabInstance:
     - target: {fileID: 1360109779792333256, guid: d9c3d69fb44203f4cb8e83bbf6aec050,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.7071068
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1360109779792333256, guid: d9c3d69fb44203f4cb8e83bbf6aec050,
         type: 3}
@@ -767,22 +767,22 @@ PrefabInstance:
     - target: {fileID: 1360109779792333256, guid: d9c3d69fb44203f4cb8e83bbf6aec050,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1360109779792333256, guid: d9c3d69fb44203f4cb8e83bbf6aec050,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -90
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1360109779792333256, guid: d9c3d69fb44203f4cb8e83bbf6aec050,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.608
+      value: 2.283
       objectReference: {fileID: 0}
     - target: {fileID: 1360109779792333256, guid: d9c3d69fb44203f4cb8e83bbf6aec050,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.248
+      value: -0.021
       objectReference: {fileID: 0}
     - target: {fileID: 2188766102986183703, guid: d9c3d69fb44203f4cb8e83bbf6aec050,
         type: 3}
@@ -794,10 +794,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: HandleA
       objectReference: {fileID: 0}
+    - target: {fileID: 4269232994246047780, guid: d9c3d69fb44203f4cb8e83bbf6aec050,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4952527755082335081, guid: d9c3d69fb44203f4cb8e83bbf6aec050,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7196824173944867853, guid: d9c3d69fb44203f4cb8e83bbf6aec050,
         type: 3}
       propertyPath: m_Name
       value: HandleB
+      objectReference: {fileID: 0}
+    - target: {fileID: 7196824173944867853, guid: d9c3d69fb44203f4cb8e83bbf6aec050,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7304061121071169357, guid: d9c3d69fb44203f4cb8e83bbf6aec050,
         type: 3}
@@ -814,12 +829,32 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 89.927
       objectReference: {fileID: 0}
+    - target: {fileID: 7628296688441418386, guid: d9c3d69fb44203f4cb8e83bbf6aec050,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8397745196044469883, guid: d9c3d69fb44203f4cb8e83bbf6aec050,
         type: 3}
       propertyPath: m_Name
       value: DoorModel
       objectReference: {fileID: 0}
     - target: {fileID: 8397745196044469883, guid: d9c3d69fb44203f4cb8e83bbf6aec050,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8408866546217109427, guid: d9c3d69fb44203f4cb8e83bbf6aec050,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8532305640968324522, guid: d9c3d69fb44203f4cb8e83bbf6aec050,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8630534667732694541, guid: d9c3d69fb44203f4cb8e83bbf6aec050,
         type: 3}
       propertyPath: m_Layer
       value: 8
