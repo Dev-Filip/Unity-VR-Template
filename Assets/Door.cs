@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
+    private AudioSource audioSource;
     private Animator animator;
+    [SerializeField]private AudioClip openDoor;
+    [SerializeField]private AudioClip closeDoor;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
     public void CloseDoor()
     {
@@ -20,6 +24,8 @@ public class Door : MonoBehaviour
     }
     public void PlayDoorShutSound()
     {
+        
+        audioSource.PlayOneShot(closeDoor);
         Debug.Log("Door has been shut");
     }
 }

@@ -10,7 +10,8 @@ public class PlayerEnterRoom : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            OnPlayerEnterRoom.Invoke();      
+            OnPlayerEnterRoom.Invoke();
+            Destroy(this.gameObject);
         }
     }
     public void LogMessageToConsole(string message)
