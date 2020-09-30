@@ -13,6 +13,7 @@ public class Door : MonoBehaviour
     public void CloseDoor()
     {
         animator.SetBool("DoorOpen", false);
+        
     }
     public void OpenDoor()
     {
