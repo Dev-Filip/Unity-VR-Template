@@ -13,6 +13,7 @@ public class SmoothMovementProvider : LocomotionProvider
     private CharacterController characterController;
     //Variable for head
     public GameObject head;
+    
 
     protected override void Awake()
     {
@@ -20,6 +21,7 @@ public class SmoothMovementProvider : LocomotionProvider
         base.Awake();
         //Configure character controller
         characterController = GetComponent<CharacterController>();
+        
     }
     void Update()
     {
@@ -63,10 +65,12 @@ public class SmoothMovementProvider : LocomotionProvider
         Vector3 joystickDirection = new Vector3(analogPosition.x, 0f, analogPosition.y);
         //Convert head rotation into vector3
         Vector3 headRotation = new Vector3(0f, head.transform.eulerAngles.y, 0f);
+        
         //Compute a common direction from head and analog input
         Vector3 direction = Quaternion.Euler(headRotation) * joystickDirection;
         //Multiply computed common direction with speed
         Vector3 movement = direction * speed;
+        
         //Apply it to the character controller
         characterController.Move(movement*Time.deltaTime);
     }
