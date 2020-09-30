@@ -711,6 +711,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 685581939}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< HEAD
   m_Script: {fileID: 11500000, guid: b671d77d0d0ae3c41aecceeff0042fdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -1575,6 +1576,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
+=======
+>>>>>>> 86bafa1... Session 8 start
   m_Script: {fileID: 11500000, guid: 1ae26e19cd956134bbdf3c6f65bf393a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -1840,6 +1843,7 @@ HingeJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+<<<<<<< HEAD
 --- !u!1 &1833565551
 GameObject:
   m_ObjectHideFlags: 0
@@ -1933,6 +1937,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1833565551}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+=======
+>>>>>>> 86bafa1... Session 8 start
 --- !u!1 &1855519116
 GameObject:
   m_ObjectHideFlags: 0
@@ -2025,6 +2031,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+<<<<<<< HEAD
 --- !u!1001 &3334594866635347284
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2216,3 +2223,5 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+=======
+>>>>>>> 86bafa1... Session 8 start
