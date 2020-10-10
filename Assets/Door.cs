@@ -5,7 +5,8 @@ using UnityEngine;
 public class Door : MonoBehaviour
 {
     private Animator animator;
-
+    [SerializeField]private AudioSource audioSource;
+    [SerializeField] private AudioClip doorShutSound;
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -21,6 +22,6 @@ public class Door : MonoBehaviour
     }
     public void PlayDoorShutSound()
     {
-        Debug.Log("Door has been shut");
+        audioSource.PlayOneShot(doorShutSound);
     }
 }
