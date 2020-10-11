@@ -7,7 +7,6 @@ public class BatteryPowerScript : MonoBehaviour
     private MeshRenderer lightMeshRenderer = null;
 
     [SerializeField] Light lightSource = null;
-
     [SerializeField] List<XRSocketInteractor> batterySockets = new List<XRSocketInteractor>();
     [SerializeField] bool outputingPower = false;
 
