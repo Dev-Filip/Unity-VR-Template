@@ -13,7 +13,8 @@ public class SmoothMovementProvider : LocomotionProvider
     private CharacterController characterController;
     //Variable for head
     public GameObject head;
-    
+
+    private float gravityMultiplier = 1.0f;
 
     protected override void Awake()
     {
@@ -29,6 +30,9 @@ public class SmoothMovementProvider : LocomotionProvider
         MoveCharacter();
         //Read the input
         CheckForInput();
+
+        //Check gravity
+        CheckGravity();
     }
     private void MoveCharacter()
     {
@@ -40,7 +44,7 @@ public class SmoothMovementProvider : LocomotionProvider
         Vector3 newCenter = new Vector3(0f, 0f, 0f);
         //Cut in half to find center height    
         newCenter.y = characterController.height / 2;
-
+        newCenter.y += characterController.skinWidth;
         //Get head position on x and z axis apply to the center
         newCenter.x = head.transform.localPosition.x;
         newCenter.z = head.transform.localPosition.z;
@@ -73,5 +77,12 @@ public class SmoothMovementProvider : LocomotionProvider
         
         //Apply it to the character controller
         characterController.Move(movement*Time.deltaTime);
+    }
+    private void CheckGravity()
+    {
+        Vector3 gravity = new Vector3(0, Physics.gravity.y * gravityMultiplier, 0);
+        gravity.y *= Time.deltaTime;
+
+        characterController.Move(gravity);
     }
 }
